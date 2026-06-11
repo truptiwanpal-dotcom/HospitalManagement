@@ -1,0 +1,14 @@
+<div>
+    <label for="fullName" class="form-label">Type Doctor Name Here..</label>
+        <input
+          type="text"
+          id="fullName"
+          class="form-control"          
+          required
+          [(ngModel)]="doctorName"
+          name="fullName"
+        />
+    <div>
+        <app-doctors-list [filter]="doctorName"></app-doctors-list>
+    </div>
+</div>
