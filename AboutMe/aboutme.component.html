@@ -1,0 +1,38 @@
+<div>
+       <div class="mb-3">
+        <label for="fullName" class="form-label">Enter your Health Problem here...</label>
+        <input
+          type="text"
+          id="fullName"
+          class="form-control"          
+          [(ngModel)]="userInput" 
+          name="fullName"
+        />
+        <br>
+        <button class="btn btn-success" (click)="askNodeAI()">Ask Open AI</button>
+        
+        <button class="btn btn-success" (click)="askPythonAI()">Ask Python AI</button>
+
+        <button class="btn btn-success" (click)="askOllamaAI()">Ask Ollama AI</button>
+
+        <div *ngIf="nodeResponse" class="card">
+                <h3>Doctor Suggestion From Node Server</h3>
+
+                <p><b>Doctor:</b> {{ nodeResponse.doctor }}</p>
+                <p><b>Reason:</b> {{ nodeResponse.reason }}</p>
+                <p><b>Advice:</b> {{ nodeResponse.advice }}</p>
+        </div>
+         <div *ngIf="pythonResponse" class="card">
+                <h3>Doctor Suggestion From Pyhon Server</h3>
+
+                <p><b>Doctor:</b> {{ pythonResponse.doctor }}</p>
+                <p><b>Reason:</b> {{ pythonResponse.reason }}</p>
+                <p><b>Advice:</b> {{ pythonResponse.advice }}</p>
+        </div>
+        <div *ngIf="ollamaResponse" class="card">
+                <h3>Doctor Suggestion From Ollama Server</h3>
+
+                <p *ngFor="let item of ollamaResponse">{{item}}</p>
+        </div>
+      </div>
+</div>
